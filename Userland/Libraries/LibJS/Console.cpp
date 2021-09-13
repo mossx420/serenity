@@ -55,8 +55,10 @@ Value Console::log()
 #ifdef __serenity__
     dbgln("\033[32;1m(js log)\033[0m {}", vm().join_arguments());
 #endif
-    if (m_client)
+    if (m_client) {
+        dbgln("\033[32;1m Client is defined \033[0m");
         return m_client->log();
+    }
     return js_undefined();
 }
 
